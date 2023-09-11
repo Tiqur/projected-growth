@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Projections</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src='main.js'></script>
+  <style>
+    body {
+      display: flex;
+      flex-flow: column;
+      padding: 0;
+      margin: 0;
+    }
+    form {
+      background: #f2f3f5;
+      height: 100%;
+      padding-inline: 2rem;
+    }
+
+    form > input {
+      margin-bottom: 1rem;
+    }
+
+    form > label {
+      margin-top: 2rem;
+    }
+
+    form * {
+      display: block;
+    }
+
+    section {
+      display: flex;
+      justify-content: center;
+      height: 50vh;
+    }
+
+    @media (max-width: 800px) {
+      section {
+        flex-direction: column;
+        align-items: center;
+      }
+      #canvas-container {
+        position: relative;
+        width: 100vw;
+        height: 25vh;
+      }
+    }
+
+    #canvas-container {
+      position: relative;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <div id='canvas-container'>
+      <canvas id="chart-canvas1"></canvas>
+    </div>
+    <div id='canvas-container'>
+      <canvas id="chart-canvas2"></canvas>
+    </div>
+  </section>
+  <form action="">
+    <label for="max_retainer_count">Max Retainer Count</label>
+    <input name="max_retainer_count" id="max_retainer_count" type="number">
+
+    <label for="retainer_free_time_reduce">How much of our free time each retainer takes up per month ( hours_spent_on_single_retainer / hours_in_a_month(720) )</label>
+    <input name="retainer_free_time_reduce" id="retainer_free_time_reduce" type="number" step='0.5'>
+
+    <label for="retainer_hire_divisor">How often to hire another helper ( 10 would mean hire one every 10 retainers )</label>
+    <input name="retainer_hire_divisor" id="retainer_hire_divisor" type="number">
+
+    <label for="helper_work_count">How many retainers the helper can cover for x amount of money</label>
+    <input name="helper_work_count" id="helper_work_count" type="number">
+
+    <label for="revenue_per_retainer">How much revenue we gain per retainer ( Monthly )</label>
+    <input name="revenue_per_retainer" id="revenue_per_retainer" type="number" step='5'>
+
+    <label for="money_per_helper">How much money we pay each helper for doing x retainers ( Monthly )</label>
+    <input name="money_per_helper" id="money_per_helper" type="number" step='50'>
+  </form>
+</body>
+</html>
